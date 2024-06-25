@@ -1,4 +1,7 @@
-from yank_code.yank_code import extract_code_blocks
+import pytest
+
+from tests.conftest import MarkdownSamples
+from yank_code import extract_code_blocks
 
 
 def test_extract_code_blocks_single_named(markdown_with_single_named_code_block):
@@ -44,6 +47,17 @@ def test_extract_code_blocks_invalid(markdown_with_invalid_code_block):
 def test_extract_code_blocks_inline(markdown_with_inline_code):
     code_blocks = extract_code_blocks(markdown_with_inline_code)
     assert len(code_blocks) == 0
+
+
+@pytest.mark.parametrize(
+    "markdown_sample", [sample.value for sample in MarkdownSamples]
+)
+def test_extract_code_blocks_all_samples(markdown_sample):
+    code_blocks = extract_code_blocks(markdown_sample)
+    assert isinstance(code_blocks, list)
+    for block in code_blocks:
+        assert "code" in block
+        assert "language" in block
 
 
 def test_extract_code_blocks_empty_input():
