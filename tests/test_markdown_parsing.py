@@ -1,6 +1,6 @@
 import pytest
 
-from tests.conftest import MarkdownSamples
+from .conftest import MarkdownSamples
 from yank_code import extract_code_blocks
 
 
