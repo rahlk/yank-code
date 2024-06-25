@@ -1,6 +1,4 @@
-import pytest
-
-from yank_code import extract_code_blocks
+from yank_code.yank_code import extract_code_blocks
 
 
 def test_extract_code_blocks_single_named(markdown_with_single_named_code_block):
