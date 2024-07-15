@@ -10,7 +10,7 @@ readme = "README.md"
 python = "^3.9"
 tree-sitter-markdown = {git = "https://github.com/tree-sitter-grammars/tree-sitter-markdown", rev = "v0.2.3"}
 pytest = "^8.2.2"
-tree-sitter = "^0.22.3"
+tree-sitter = "^0.21.3"
 
 
 [build-system]
